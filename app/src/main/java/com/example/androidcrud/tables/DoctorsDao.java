@@ -13,7 +13,7 @@ public interface DoctorsDao {
     void insertAll(Doctors ... doctor);
 
     @Delete
-    void delete(Doctors doctor);
+    void delete(Doctors ... doctor);
 
     @Query("SELECT *, first_name AS 'First name', last_name AS 'Last name', patronymic AS 'Patronymic', experience AS 'Experience' FROM doctors")
     List<Doctors> getAllForUser();
@@ -22,5 +22,5 @@ public interface DoctorsDao {
     List<Doctors> getAllForAdmin();
 
     @Query("SELECT * FROM doctors WHERE login = :login AND password = :password")
-    Doctors searchAccount(String login, String password);
+    List<Doctors> searchAccount(String login, String password);
 }

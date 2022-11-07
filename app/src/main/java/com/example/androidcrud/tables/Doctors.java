@@ -27,4 +27,13 @@ public class Doctors {
 
     @ColumnInfo(name = "password")
     public String password;
+
+    public Doctors(String firstName, String lastName, String patronymic, int experience, String login, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patronymic = patronymic;
+        this.experience = experience;
+        this.login = login;
+        this.password = password;
+    }
 }
