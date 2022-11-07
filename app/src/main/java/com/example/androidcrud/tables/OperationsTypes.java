@@ -15,4 +15,9 @@ public class OperationsTypes {
 
     @ColumnInfo(name = "description")
     public String description;
+
+    public OperationsTypes(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }

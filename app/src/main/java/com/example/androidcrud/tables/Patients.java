@@ -27,4 +27,12 @@ public class Patients {
 
     @ColumnInfo(name = "wardId")
     public int wardId;
+
+    public Patients(String firstName, String lastName, String patronymic, String address, int wardId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patronymic = patronymic;
+        this.address = address;
+        this.wardId = wardId;
+    }
 }
