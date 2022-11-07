@@ -15,6 +15,6 @@ public interface WardsDao {
     @Delete
     void delete(Wards ward);
 
-    @Query("SELECT *, name AS 'Name', description AS 'Description' FROM wards")
+    @Query("SELECT *, capacity AS 'Capacity' FROM wards")
     List<Wards> getAll();
 }

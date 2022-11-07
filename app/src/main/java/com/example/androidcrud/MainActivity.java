@@ -1,17 +1,16 @@
 package com.example.androidcrud;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 import com.example.androidcrud.tables.Doctors;
 import com.example.androidcrud.tables.DoctorsDao;
-import com.example.basadannih.R;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -35,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
                 AppDatabase.class, "database").allowMainThreadQueries().build();
 
         doctorDao = db.doctorsDao();
+
+        TablesData tablesData = new TablesData();
+        tablesData.fillTables();
     }
 
     public static String generateCaptcha() {

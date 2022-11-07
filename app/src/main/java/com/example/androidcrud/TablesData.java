@@ -6,7 +6,6 @@ import com.example.androidcrud.tables.OperationsTypes;
 import com.example.androidcrud.tables.Patients;
 import com.example.androidcrud.tables.Wards;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TablesData {
@@ -18,31 +17,6 @@ public class TablesData {
         List<Patients> patientsCheck = MainActivity.db.patientsDao().getAll();
         List<OperationsTypes> operationsTypesCheck = MainActivity.db.operationsTypesDao().getAll();
 
-        if (operationsCheck.isEmpty()){
-            MainActivity.db.operationsDao().insertAll(new Operations("Лечение паховой грыжи",
-                    "Операция может быть полостной или лапороскопической. Во время вмешательства врачи по необходимости вправляют выпячивание и ушивают паховый канал",
-                    3,1));
-            MainActivity.db.operationsDao().insertAll(new Operations("Лечение желчнокаменной болезни",
-                    "Если в результате обследования установлено, что в желчном пузыре образовались камни, может назначить плановую операцию по удалению желчного пузыря",
-                    3, 2));
-            MainActivity.db.operationsDao().insertAll(new Operations("Лечение острого аппендицита",
-                    "Эта операция позволяет произвести визуальный осмотр и провести санацию органов брюшной полости",
-                    1, 3));
-            MainActivity.db.operationsDao().insertAll(new Operations("Лечение перфоративной язвы",
-                    "Во время операции врачи удаляют пораженную часть желудка, а затем ушивают рану",
-                    1, 4));
-            MainActivity.db.operationsDao().insertAll(new Operations("Лечение механической желтухи",
-                    "При механической желтухе операция носит многоуровневый характер",
-                    2, 5));
-            MainActivity.db.operationsDao().insertAll(new Operations("Лечение острой кишечной инфекции",
-                    "При хирургическом вмешательстве удаляется препятствие. Проводится санация органов брюшной полости",
-                    2, 6));
-        }
-        if (wardsCheck.isEmpty()){
-            MainActivity.db.wardsDao().insertAll(new Wards(15,1));
-            MainActivity.db.wardsDao().insertAll(new Wards(15,2));
-            MainActivity.db.wardsDao().insertAll(new Wards(15,3));
-        }
         if (doctorsCheck.isEmpty()){
             MainActivity.db.doctorsDao().insertAll(new Doctors("Иван","Казанов",
                     "Игоревич",5,"kazanov",
@@ -63,13 +37,6 @@ public class TablesData {
                     "Сергеевич",6,"pushkin",
                     "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec"));
         }
-        if (patientsCheck.isEmpty()){
-            MainActivity.db.patientsDao().insertAll(new Patients("Василий","Коршунов","Иванович","Ленина 155",1));
-            MainActivity.db.patientsDao().insertAll(new Patients("Константин","Ботанов","Петрович","Кавказская 29",1));
-            MainActivity.db.patientsDao().insertAll(new Patients("Игорь","Камазов","Леонидович","Кавказская 37",2));
-            MainActivity.db.patientsDao().insertAll(new Patients("Иван","Белов","Сергеевич","Ленина 134",2));
-            MainActivity.db.patientsDao().insertAll(new Patients("Сергей","Кимашев","Сергеевич","Ленина 225",3));
-        }
         if (operationsTypesCheck.isEmpty()){
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Экстренные",
                     "Производятся немедленно после постановки диагноза. Цель — спасение жизни пациента"));
@@ -77,6 +44,38 @@ public class TablesData {
                     "Производятся в течение 24 часов после постановки диагноза. Цель — уменьшение тяжести последствий операции"));
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Плановые",
                     "Выполняются после полной предоперационной подготовки в то время, которое удобно из организационных соображений"));
+        }
+        if (wardsCheck.isEmpty()){
+            MainActivity.db.wardsDao().insertAll(new Wards(15,1));
+            MainActivity.db.wardsDao().insertAll(new Wards(15,2));
+            MainActivity.db.wardsDao().insertAll(new Wards(15,3));
+        }
+        if (patientsCheck.isEmpty()){
+            MainActivity.db.patientsDao().insertAll(new Patients("Василий","Коршунов","Иванович","Ленина 155",1));
+            MainActivity.db.patientsDao().insertAll(new Patients("Константин","Ботанов","Петрович","Кавказская 29",1));
+            MainActivity.db.patientsDao().insertAll(new Patients("Игорь","Камазов","Леонидович","Кавказская 37",2));
+            MainActivity.db.patientsDao().insertAll(new Patients("Иван","Белов","Сергеевич","Ленина 134",2));
+            MainActivity.db.patientsDao().insertAll(new Patients("Сергей","Кимашев","Сергеевич","Ленина 225",3));
+        }
+        if (operationsCheck.isEmpty()){
+            MainActivity.db.operationsDao().insertAll(new Operations("Лечение паховой грыжи",
+                    "Операция может быть полостной или лапороскопической. Во время вмешательства врачи по необходимости вправляют выпячивание и ушивают паховый канал",
+                    3,1));
+            MainActivity.db.operationsDao().insertAll(new Operations("Лечение желчнокаменной болезни",
+                    "Если в результате обследования установлено, что в желчном пузыре образовались камни, может назначить плановую операцию по удалению желчного пузыря",
+                    3, 2));
+            MainActivity.db.operationsDao().insertAll(new Operations("Лечение острого аппендицита",
+                    "Эта операция позволяет произвести визуальный осмотр и провести санацию органов брюшной полости",
+                    1, 3));
+            MainActivity.db.operationsDao().insertAll(new Operations("Лечение перфоративной язвы",
+                    "Во время операции врачи удаляют пораженную часть желудка, а затем ушивают рану",
+                    1, 4));
+            MainActivity.db.operationsDao().insertAll(new Operations("Лечение механической желтухи",
+                    "При механической желтухе операция носит многоуровневый характер",
+                    2, 5));
+            MainActivity.db.operationsDao().insertAll(new Operations("Лечение острой кишечной инфекции",
+                    "При хирургическом вмешательстве удаляется препятствие. Проводится санация органов брюшной полости",
+                    2, 6));
         }
     }
 }
