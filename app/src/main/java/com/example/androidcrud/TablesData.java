@@ -29,13 +29,13 @@ public class TablesData {
                     "bdc247a1a0e28a586ed40744d281993d519abe981aaef33277d4877d167e1150816e9723d068a59509991ed0cdd8c5cea0f9ecd0ef23664db7cb85db5a0dbe12"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Леонид","Рязанцев",
                     "Владиславович",9,"admin",
-                    "4fcfd9010619e20c3f94a00d90503ea807bc0cb95c590fdfc6386af60531d16f7ce7473a5d06aff5ec0998895c66d53ce2d570479f94286c90f15d318b9cd992"));
+                    "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Владимир","Крючков",
                     "Олегович",4,"kryuchkov",
                     "5e3155774d39d97c5f9e17c108c2b3e0485a43ae34ebd196f61a6f8bf732ef71a49e5710594cfc7391db114edf99f5da3ed96ef1d6ca5e598e85f91bd41e7eeb"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Александр","Пушкин",
                     "Сергеевич",6,"pushkin",
-                    "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec"));
+                    "b14361404c078ffd549c03db443c3fede2f3e534d73f78f77301ed97d4a436a9fd9db05ee8b325c0ad36438b43fec8510c204fc1c1edb21d0941c00e9e2c1ce2"));
         }
         if (operationsTypesCheck.isEmpty()){
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Экстренные",
@@ -69,7 +69,7 @@ public class TablesData {
                     1, 3));
             MainActivity.db.operationsDao().insertAll(new Operations("Лечение перфоративной язвы",
                     "Во время операции врачи удаляют пораженную часть желудка, а затем ушивают рану",
-                    1, 4));
+                    1, 3));
             MainActivity.db.operationsDao().insertAll(new Operations("Лечение механической желтухи",
                     "При механической желтухе операция носит многоуровневый характер",
                     2, 5));

@@ -1,6 +1,8 @@
 package com.example.androidcrud;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -10,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.androidcrud.tables.Doctors;
-import com.example.androidcrud.tables.DoctorsDao;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static AppDatabase db;
     TextView captcha;
-    DoctorsDao doctorDao;
     static boolean isAdmin = false;
+    SQLiteDatabase database;
 
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database").allowMainThreadQueries().build();
 
-        doctorDao = db.doctorsDao();
+        // db.clearAllTables();
+
+        // FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations_types';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Patients';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
 
         TablesData tablesData = new TablesData();
         tablesData.fillTables();
