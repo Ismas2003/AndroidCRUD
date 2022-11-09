@@ -1,9 +1,9 @@
 package com.example.androidcrud;
 
-import com.example.androidcrud.tables.Doctors;
 import com.example.androidcrud.tables.Operations;
 import com.example.androidcrud.tables.OperationsTypes;
 import com.example.androidcrud.tables.Patients;
+import com.example.androidcrud.tables.Staff;
 import com.example.androidcrud.tables.Wards;
 
 import java.util.List;
@@ -12,30 +12,30 @@ public class TablesData {
     public void fillTables() {
 
         List<Operations> operationsCheck = MainActivity.db.operationsDao().getAll();
-        List<Doctors> doctorsCheck = MainActivity.db.doctorsDao().getAllForAdmin();
+        List<Staff> staffCheck = MainActivity.db.staffDao().getAllForAdmin();
         List<Wards> wardsCheck = MainActivity.db.wardsDao().getAll();
         List<Patients> patientsCheck = MainActivity.db.patientsDao().getAll();
         List<OperationsTypes> operationsTypesCheck = MainActivity.db.operationsTypesDao().getAll();
 
-        if (doctorsCheck.isEmpty()){
-            MainActivity.db.doctorsDao().insertAll(new Doctors("Иван","Казанов",
-                    "Игоревич",5,"kazanov",
-                    "3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2"));
-            MainActivity.db.doctorsDao().insertAll(new Doctors("Олег","Ураганов" ,
-                    "Владимирович",3,"uraganov",
-                    "fb131bc57a477c8c9d068f1ee5622ac304195a77164ccc2d75d82dfe1a727ba8d674ed87f96143b2b416aacefb555e3045c356faa23e6d21de72b85822e39fdd"));
-            MainActivity.db.doctorsDao().insertAll(new Doctors("Владислав","Кузнецов",
-                    "Константинович",7,"kuznetsov",
-                    "bdc247a1a0e28a586ed40744d281993d519abe981aaef33277d4877d167e1150816e9723d068a59509991ed0cdd8c5cea0f9ecd0ef23664db7cb85db5a0dbe12"));
-            MainActivity.db.doctorsDao().insertAll(new Doctors("Леонид","Рязанцев",
-                    "Владиславович",9,"admin",
-                    "4fcfd9010619e20c3f94a00d90503ea807bc0cb95c590fdfc6386af60531d16f7ce7473a5d06aff5ec0998895c66d53ce2d570479f94286c90f15d318b9cd992"));
-            MainActivity.db.doctorsDao().insertAll(new Doctors("Владимир","Крючков",
-                    "Олегович",4,"kryuchkov",
-                    "5e3155774d39d97c5f9e17c108c2b3e0485a43ae34ebd196f61a6f8bf732ef71a49e5710594cfc7391db114edf99f5da3ed96ef1d6ca5e598e85f91bd41e7eeb"));
-            MainActivity.db.doctorsDao().insertAll(new Doctors("Александр","Пушкин",
-                    "Сергеевич",6,"pushkin",
-                    "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec"));
+        if (staffCheck.isEmpty()){
+            MainActivity.db.staffDao().insertAll(new Staff("Яков","Фокин",
+                    "Парфеньевич",4,"OZyMO",
+                    "1354d851295a02b6eb5a0a58d9987ab0a49e0861067e71c932f564125e5a25b1e6b1d7ae7153f2fb0e7fc78347af5650c78ee82e9a5b13bde218a00121b16b87"));
+            MainActivity.db.staffDao().insertAll(new Staff("Гарри","Ильин" ,
+                    "Авдеевич",5,"QIpEG",
+                    "68cb76d7c603ba76e1bd3c0060a18fd1db472f41272dac364fe2bf8243010042e1f6265ba390553e3e8a9e0a8e1c8ab9dde44274d3c74d55e27f2d1b320f252c"));
+            MainActivity.db.staffDao().insertAll(new Staff("Леонид","Третьяков",
+                    "Ефимович",2,"HdwAw",
+                    "df869d369074b2f78a95e3d59fb94915dbb2f6f2b8f5ca071975ea7a156e3c6fc996e24c0a627068eaa55bd5974a08149c655421cb8c238c621954c3759c5cb6"));
+            MainActivity.db.staffDao().insertAll(new Staff("Игнатий","Одинцов",
+                    "Семенович",1,"DAafe",
+                    "e6addf267bcf06a2acb285a526149c3d3df50d5010aee71ae50a88374437b0c15d39defdc73a79907c0d04a891a42537a51b21076c625451c5bf8fc0d6c6866a"));
+            MainActivity.db.staffDao().insertAll(new Staff("Анатолий","Игнатьев",
+                    "Михаилович",3,"Djwdm",
+                    "c4f0c98d0238fb571722c92fa3fe44a2390ec6439f6ada4bcae45f28aee163a3898e06f34b357a1d9fd29783edf35bc75df0fa94a8cd680d12ed0c052838a441"));
+            MainActivity.db.staffDao().insertAll(new Staff("Владимир","Асанов",
+                    "Валерьевич",2,"Administrator",
+                    "1bee03396cc6c1c645b61c6ac87a941e7abf5e42ce5b6ca5927b2013362756ffb4934326eba570ca34cd4521e5ac02a31dd9fcd1bd11268a7345ded443da1dd6"));
         }
         if (operationsTypesCheck.isEmpty()){
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Экстренные",

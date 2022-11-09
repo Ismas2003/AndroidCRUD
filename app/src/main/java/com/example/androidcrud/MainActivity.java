@@ -9,8 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import com.example.androidcrud.tables.Doctors;
-import com.example.androidcrud.tables.DoctorsDao;
+import com.example.androidcrud.tables.Staff;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static AppDatabase db;
     TextView captcha;
-    DoctorsDao doctorDao;
+    StaffDao staffDao;
     static boolean isAdmin = false;
 
     @Override
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database").allowMainThreadQueries().build();
 
-        doctorDao = db.doctorsDao();
+        staffDao = db.staffDao();
 
         TablesData tablesData = new TablesData();
         tablesData.fillTables();
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         TextView passwordTextView = findViewById(R.id.txtPassword);
         String login = loginTextView.getText().toString();
         String password = sha512(passwordTextView.getText().toString()).toString();
-        List<Doctors> doctor = db.doctorsDao().searchAccount(login, password);
+        List<Staff> doctor = db.staffDao().searchAccount(login, password);
 
         if (captchaInput.getText().toString().equals(captcha.getText().toString())) {
             if (doctor.size() > 0) {
