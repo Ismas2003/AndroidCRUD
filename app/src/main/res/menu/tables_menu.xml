@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/doctorsMenuItem"
+        android:title="Doctors" />
+    <item
+        android:id="@+id/operationsMenuItem"
+        android:title="Operations" />
+    <item
+        android:id="@+id/operationsTypesMenuItem"
+        android:title="Operations types" />
+    <item
+        android:id="@+id/patientsMenuItem"
+        android:title="Patients" />
+    <item
+        android:id="@+id/wardsMenuItem"
+        android:title="Wards" />
+    <item
+        android:id="@+id/noneMenuItem"
+        android:title="None" />
+</menu>
