@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.androidcrud.adapters.DoctorsAdminAdapter;
 import com.example.androidcrud.adapters.DoctorsUserAdapter;
@@ -33,6 +35,10 @@ public class TablesActivity extends AppCompatActivity {
         } else {
             setTitle("User");
         }
+
+        recyclerView = findViewById(R.id.recycler_view);
+        SnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
     }
 
     @Override
@@ -82,8 +88,7 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     private void fillDoctorsAdminRecycler(List<Doctors> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         doctorsAdminAdapter = new DoctorsAdminAdapter(this, list);
@@ -91,8 +96,7 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     private void fillDoctorsUserRecycler(List<Doctors> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         doctorsUserAdapter = new DoctorsUserAdapter(this, list);
