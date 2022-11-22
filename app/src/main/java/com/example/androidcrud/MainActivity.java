@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
         // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
 
-        TablesData tablesData = new TablesData();
-        tablesData.fillTables();
+        // TablesData tablesData = new TablesData();
+        // tablesData.fillTables();
     }
 
     public static String generateCaptcha() {

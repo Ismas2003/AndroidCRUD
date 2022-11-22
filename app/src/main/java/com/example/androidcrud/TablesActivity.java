@@ -1,13 +1,25 @@
 package com.example.androidcrud;
 
+import static com.example.androidcrud.MainActivity.db;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androidcrud.adapters.DoctorsAdapter;
+import com.example.androidcrud.tables.Doctors;
+
+import java.util.List;
 
 public class TablesActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    DoctorsAdapter doctorsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +31,8 @@ public class TablesActivity extends AppCompatActivity {
         } else {
             setTitle("User");
         }
+
+        fillDoctorsRecycler(db.doctorsDao().getAllForAdmin());
     }
 
     @Override
@@ -54,5 +68,14 @@ public class TablesActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void fillDoctorsRecycler(List<Doctors> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(layoutManager);
+
+        doctorsAdapter = new DoctorsAdapter(this, list);
+        recyclerView.setAdapter(doctorsAdapter);
     }
 }
