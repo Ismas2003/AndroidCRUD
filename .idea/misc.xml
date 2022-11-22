@@ -5,10 +5,11 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/drawable/divider.xml" value="0.3355" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_main.xml" value="0.24909420289855072" />
-        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_tables.xml" value="0.24909420289855072" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_tables.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/doctors_rv_layout.xml" value="0.28125" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/item_layout.xml" value="0.2441123188405797" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_doctors.xml" value="0.28125" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_doctors_foruser.xml" value="0.2758152173913043" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/switch_item.xml" value="0.2441123188405797" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/menu/tables_menu.xml" value="0.3614583333333333" />
         <entry key="..\:/AndroidStudioProjects/BasaDannih/app/src/main/res/layout/activity_main.xml" value="0.24909420289855072" />

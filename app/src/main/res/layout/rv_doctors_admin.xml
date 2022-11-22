@@ -14,19 +14,18 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:divider="@drawable/divider"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:scrollbars="horizontal|vertical"
-            android:showDividers="middle"
             android:verticalScrollbarPosition="defaultPosition">
 
             <TextView
                 android:id="@+id/tv_first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="1"
                 android:text="First name"
                 android:textSize="20sp" />
 
@@ -34,8 +33,9 @@
                 android:id="@+id/tv_last_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="1"
                 android:text="Last name"
                 android:textSize="20sp" />
 
@@ -43,8 +43,9 @@
                 android:id="@+id/tv_patronymic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="1"
                 android:text="Patronymic"
                 android:textSize="20sp" />
 
@@ -52,8 +53,9 @@
                 android:id="@+id/tv_experience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="1"
                 android:text="Experience"
                 android:textSize="20sp" />
 
@@ -61,8 +63,9 @@
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="1"
                 android:text="Login"
                 android:textSize="20sp" />
 
@@ -70,10 +73,12 @@
                 android:id="@+id/tv_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="1"
                 android:text="Password"
                 android:textSize="20sp" />
         </LinearLayout>
     </HorizontalScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

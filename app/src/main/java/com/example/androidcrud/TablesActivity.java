@@ -11,7 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidcrud.adapters.DoctorsAdapter;
+import com.example.androidcrud.adapters.DoctorsAdminAdapter;
+import com.example.androidcrud.adapters.DoctorsUserAdapter;
 import com.example.androidcrud.tables.Doctors;
 
 import java.util.List;
@@ -19,7 +20,8 @@ import java.util.List;
 public class TablesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    DoctorsAdapter doctorsAdapter;
+    DoctorsAdminAdapter doctorsAdminAdapter;
+    DoctorsUserAdapter doctorsUserAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,6 @@ public class TablesActivity extends AppCompatActivity {
         } else {
             setTitle("User");
         }
-
-        fillDoctorsRecycler(db.doctorsDao().getAllForAdmin());
     }
 
     @Override
@@ -49,6 +49,11 @@ public class TablesActivity extends AppCompatActivity {
         switch(id){
             case R.id.doctorsMenuItem:
                 setTitle("Doctors");
+                if (MainActivity.isAdmin) {
+                    fillDoctorsAdminRecycler(db.doctorsDao().getAllForAdmin());
+                } else {
+                    fillDoctorsUserRecycler(db.doctorsDao().getAllForUser());
+                }
                 return true;
             case R.id.operationsMenuItem:
                 setTitle("Operations");
@@ -65,17 +70,32 @@ public class TablesActivity extends AppCompatActivity {
             case R.id.noneMenuItem:
                 setTitle("None");
                 noneTextView.setVisibility(TextView.VISIBLE);
+                clearRecyclerView();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void fillDoctorsRecycler(List<Doctors> list) {
+    public void clearRecyclerView() {
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setAdapter(null);
+    }
+
+    private void fillDoctorsAdminRecycler(List<Doctors> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
 
-        doctorsAdapter = new DoctorsAdapter(this, list);
-        recyclerView.setAdapter(doctorsAdapter);
+        doctorsAdminAdapter = new DoctorsAdminAdapter(this, list);
+        recyclerView.setAdapter(doctorsAdminAdapter);
+    }
+
+    private void fillDoctorsUserRecycler(List<Doctors> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(layoutManager);
+
+        doctorsUserAdapter = new DoctorsUserAdapter(this, list);
+        recyclerView.setAdapter(doctorsUserAdapter);
     }
 }

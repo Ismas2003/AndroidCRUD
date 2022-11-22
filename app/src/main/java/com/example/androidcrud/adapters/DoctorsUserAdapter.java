@@ -14,12 +14,12 @@ import com.example.androidcrud.tables.Doctors;
 
 import java.util.List;
 
-public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsViewHolder> {
+public class DoctorsUserAdapter extends RecyclerView.Adapter<DoctorsUserAdapter.DoctorsViewHolder> {
 
     Context context;
     List<Doctors> doctors;
 
-    public DoctorsAdapter(Context context, List<Doctors> doctors) {
+    public DoctorsUserAdapter(Context context, List<Doctors> doctors) {
         this.context = context;
         this.doctors = doctors;
     }
@@ -27,18 +27,16 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
     @NonNull
     @Override
     public DoctorsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View doctorsItems = LayoutInflater.from(context).inflate(R.layout.rv_doctors, parent, false);
+        View doctorsItems = LayoutInflater.from(context).inflate(R.layout.rv_doctors_user, parent, false);
         return new DoctorsViewHolder(doctorsItems);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DoctorsAdapter.DoctorsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DoctorsUserAdapter.DoctorsViewHolder holder, int position) {
         holder.firstName.setText(doctors.get(position).firstName);
         holder.lastName.setText(doctors.get(position).lastName);
         holder.patronymic.setText(doctors.get(position).patronymic);
         holder.experience.setText(String.valueOf(doctors.get(position).experience));
-        holder.login.setText(doctors.get(position).login);
-        holder.password.setText(doctors.get(position).password);
     }
 
     @Override
@@ -57,8 +55,6 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
             lastName = itemView.findViewById(R.id.tv_last_name);
             patronymic = itemView.findViewById(R.id.tv_patronymic);
             experience = itemView.findViewById(R.id.tv_experience);
-            login = itemView.findViewById(R.id.tv_login);
-            password = itemView.findViewById(R.id.tv_password);
         }
     }
 }
