@@ -50,9 +50,9 @@ public class TablesActivity extends AppCompatActivity {
             case R.id.doctorsMenuItem:
                 setTitle("Doctors");
                 if (MainActivity.isAdmin) {
-                    fillDoctorsAdminRecycler(db.doctorsDao().getAllForAdmin());
+                    fillDoctorsAdminRecycler(db.doctorsDao().getAll());
                 } else {
-                    fillDoctorsUserRecycler(db.doctorsDao().getAllForUser());
+                    fillDoctorsUserRecycler(db.doctorsDao().getAll());
                 }
                 return true;
             case R.id.operationsMenuItem:

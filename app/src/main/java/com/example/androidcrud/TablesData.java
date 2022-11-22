@@ -12,7 +12,7 @@ public class TablesData {
     public void fillTables() {
 
         List<Operations> operationsCheck = MainActivity.db.operationsDao().getAll();
-        List<Doctors> doctorsCheck = MainActivity.db.doctorsDao().getAllForAdmin();
+        List<Doctors> doctorsCheck = MainActivity.db.doctorsDao().getAll();
         List<Wards> wardsCheck = MainActivity.db.wardsDao().getAll();
         List<Patients> patientsCheck = MainActivity.db.patientsDao().getAll();
         List<OperationsTypes> operationsTypesCheck = MainActivity.db.operationsTypesDao().getAll();
