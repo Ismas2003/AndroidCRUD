@@ -108,6 +108,5 @@ public class TablesActivity extends AppCompatActivity {
     public void onBackClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        finishActivity(0);
     }
 }

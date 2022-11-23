@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public static String generateCaptcha() {
         String captcha = "";
         try {
-            String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            String letters = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             for (int i = 0; i < 5; i++) {
                 captcha += letters.charAt((int) (Math.random() * letters.length()));
             }
@@ -90,12 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (captchaInput.getText().toString().equals(captcha.getText().toString())) {
             if (doctor.size() > 0) {
-                if (doctor.get(0).login.equals("admin")) {
-                    isAdmin = true;
-                }
+                isAdmin = doctor.get(0).login.equals("admin");
                 Intent intent = new Intent(this, TablesActivity.class);
                 startActivity(intent);
-                finishActivity(0);
             } else {
                 Toast.makeText(this, "Wrong login or password", Toast.LENGTH_SHORT).show();
             }
