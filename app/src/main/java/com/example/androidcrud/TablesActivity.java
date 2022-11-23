@@ -2,9 +2,11 @@ package com.example.androidcrud;
 
 import static com.example.androidcrud.MainActivity.db;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -101,5 +103,11 @@ public class TablesActivity extends AppCompatActivity {
 
         doctorsUserAdapter = new DoctorsUserAdapter(this, list);
         recyclerView.setAdapter(doctorsUserAdapter);
+    }
+
+    public void onBackClick(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finishActivity(0);
     }
 }

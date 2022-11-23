@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Intent intent = new Intent(this, TablesActivity.class);
                 startActivity(intent);
+                finishActivity(0);
             } else {
                 Toast.makeText(this, "Wrong login or password", Toast.LENGTH_SHORT).show();
             }
