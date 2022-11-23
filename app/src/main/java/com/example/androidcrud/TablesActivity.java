@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.androidcrud.adapters.DoctorsAdminAdapter;
 import com.example.androidcrud.adapters.DoctorsUserAdapter;
+import com.example.androidcrud.addEditActivities.DoctorsAeActivity;
 import com.example.androidcrud.tables.Doctors;
 
 import java.util.List;
@@ -26,11 +27,14 @@ public class TablesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DoctorsAdminAdapter doctorsAdminAdapter;
     DoctorsUserAdapter doctorsUserAdapter;
+    View footer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tables);
+
+        footer = findViewById(R.id.footerLinearLayout);
 
         if (MainActivity.isAdmin) {
             setTitle("Admin");
@@ -54,6 +58,7 @@ public class TablesActivity extends AppCompatActivity {
         int id = item.getItemId();
         TextView noneTextView = findViewById(R.id.noneTextView);
         noneTextView.setVisibility(TextView.INVISIBLE);
+        footer.setVisibility(View.VISIBLE);
         switch(id){
             case R.id.doctorsMenuItem:
                 setTitle("Doctors");
@@ -105,8 +110,13 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(doctorsUserAdapter);
     }
 
-    public void onBackClick(View view) {
+    public void onBackToMainClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onAddClick(View view) {
+        Intent intent = new Intent(this, DoctorsAeActivity.class);
         startActivity(intent);
     }
 }
