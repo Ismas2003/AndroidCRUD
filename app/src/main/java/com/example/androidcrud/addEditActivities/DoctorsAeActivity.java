@@ -3,6 +3,7 @@ package com.example.androidcrud.addEditActivities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,8 @@ import com.example.androidcrud.TablesActivity;
 
 
 public class DoctorsAeActivity extends AppCompatActivity {
+    TextView firstName, lastName, patronymic, experience, login, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

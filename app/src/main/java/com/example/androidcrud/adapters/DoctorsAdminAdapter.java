@@ -1,6 +1,8 @@
 package com.example.androidcrud.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidcrud.R;
+import com.example.androidcrud.addEditActivities.DoctorsAeActivity;
 import com.example.androidcrud.tables.Doctors;
 
 import java.util.List;
 
 public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapter.DoctorsViewHolder> {
-
     Context context;
     List<Doctors> doctors;
 
@@ -32,13 +34,22 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DoctorsAdminAdapter.DoctorsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DoctorsAdminAdapter.DoctorsViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.firstName.setText(doctors.get(position).firstName);
         holder.lastName.setText(doctors.get(position).lastName);
         holder.patronymic.setText(doctors.get(position).patronymic);
         holder.experience.setText(String.valueOf(doctors.get(position).experience));
         holder.login.setText(doctors.get(position).login);
         holder.password.setText(doctors.get(position).password);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DoctorsAeActivity.class);
+                intent.putExtra("id", getItemId(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

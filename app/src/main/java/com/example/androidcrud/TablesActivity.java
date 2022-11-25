@@ -43,6 +43,7 @@ public class TablesActivity extends AppCompatActivity {
         }
 
         recyclerView = findViewById(R.id.recycler_view);
+
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
     }
