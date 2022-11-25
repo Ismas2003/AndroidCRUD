@@ -42,13 +42,10 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
         holder.login.setText(doctors.get(position).login);
         holder.password.setText(doctors.get(position).password);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, DoctorsAeActivity.class);
-                intent.putExtra("id", getItemId(position));
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, DoctorsAeActivity.class);
+            intent.putExtra("id", position);
+            context.startActivity(intent);
         });
     }
 

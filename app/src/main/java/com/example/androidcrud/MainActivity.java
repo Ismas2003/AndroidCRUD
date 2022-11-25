@@ -35,17 +35,17 @@ public class MainActivity extends AppCompatActivity {
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database").allowMainThreadQueries().build();
 
-        db.clearAllTables();
+        // db.clearAllTables();
 
-        FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
-        mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
-        mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations_types';");
-        mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Patients';");
-        mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
-        mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
+        // FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations_types';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Patients';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
+        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
 
-        TablesData tablesData = new TablesData();
-        tablesData.fillTables();
+        // TablesData tablesData = new TablesData();
+        // tablesData.fillTables();
     }
 
     public static String generateCaptcha() {
