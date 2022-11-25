@@ -20,19 +20,19 @@ public class TablesData {
         if (doctorsCheck.isEmpty()){
             MainActivity.db.doctorsDao().insertAll(new Doctors("Иван","Казанов",
                     "Игоревич",5,"kazanov",
-                    "3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2"));
+                    "89a4ad086b6963436c68450c28a8f7d03b03f6064e023a6f7aa598d3acb9a958eb01ad957bafe958de5218b14b6ae0bd19c6515ba8465527c5f085cbe6f5f44b"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Олег","Ураганов" ,
                     "Владимирович",3,"uraganov",
-                    "fb131bc57a477c8c9d068f1ee5622ac304195a77164ccc2d75d82dfe1a727ba8d674ed87f96143b2b416aacefb555e3045c356faa23e6d21de72b85822e39fdd"));
+                    "8b3cb9839854c35fcd21f93d8c7fc63f991ca354dab4e9e80a74f3fc33856717909092a7bff0535f9288bd6945fbbc620f5fae5faf49460f597e3faec5137e4a"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Владислав","Кузнецов",
                     "Константинович",7,"kuznetsov",
-                    "bdc247a1a0e28a586ed40744d281993d519abe981aaef33277d4877d167e1150816e9723d068a59509991ed0cdd8c5cea0f9ecd0ef23664db7cb85db5a0dbe12"));
+                    "a83dbf931c0c7a8461fdce666c5e6b91c7ce083d56b86d14d1c2608dcbbc778b6399ae090a08eb3ab996b3e4bee914e4f92cd296c6d93ffed391e416d7fd3078"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Леонид","Рязанцев",
                     "Владиславович",9,"admin",
                     "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Владимир","Крючков",
                     "Олегович",4,"kryuchkov",
-                    "5e3155774d39d97c5f9e17c108c2b3e0485a43ae34ebd196f61a6f8bf732ef71a49e5710594cfc7391db114edf99f5da3ed96ef1d6ca5e598e85f91bd41e7eeb"));
+                    "e8beecc8eb1f2acdcb321e2f2138d001aab77badbca1fce3d23fecf7bbe67a95bfa0507ba458c547a5b2119d2d67aadc8c138237b093997332e3816e747994f1"));
             MainActivity.db.doctorsDao().insertAll(new Doctors("Александр","Пушкин",
                     "Сергеевич",6,"pushkin",
                     "b14361404c078ffd549c03db443c3fede2f3e534d73f78f77301ed97d4a436a9fd9db05ee8b325c0ad36438b43fec8510c204fc1c1edb21d0941c00e9e2c1ce2"));
