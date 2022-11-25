@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         captcha.setText(generateCaptcha());
     }
 
-    private StringBuilder sha512(String text) {
+    public static StringBuilder sha512(String text) {
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-512");
@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } else {
             Toast.makeText(this, "Wrong captcha", Toast.LENGTH_SHORT).show();
+            captcha.setText(generateCaptcha());
         }
     }
 }

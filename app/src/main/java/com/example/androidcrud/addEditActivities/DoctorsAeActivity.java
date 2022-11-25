@@ -68,9 +68,18 @@ public class DoctorsAeActivity extends AppCompatActivity {
             doctor.firstName = firstName.getText().toString();
             doctor.lastName = lastName.getText().toString();
             doctor.patronymic = patronymic.getText().toString();
-            doctor.experience = Integer.parseInt(experience.getText().toString());
+            try {
+                doctor.experience = Integer.parseInt(experience.getText().toString());
+            } catch(NumberFormatException nfe) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Error");
+                builder.setMessage("Experience must be a number");
+                builder.setPositiveButton("OK", null);
+                builder.show();
+                return;
+            }
             doctor.login = login.getText().toString();
-            doctor.password = password.getText().toString();
+            doctor.password = MainActivity.sha512(password.getText().toString()).toString();
 
             MainActivity.db.doctorsDao().insertAll(doctor);
 
