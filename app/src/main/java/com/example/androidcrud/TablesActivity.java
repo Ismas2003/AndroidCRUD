@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +22,7 @@ import com.example.androidcrud.adapters.DoctorsUserAdapter;
 import com.example.androidcrud.addEditActivities.DoctorsAeActivity;
 import com.example.androidcrud.tables.Doctors;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TablesActivity extends AppCompatActivity {
@@ -28,6 +31,7 @@ public class TablesActivity extends AppCompatActivity {
     DoctorsAdminAdapter doctorsAdminAdapter;
     DoctorsUserAdapter doctorsUserAdapter;
     View footer;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class TablesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tables);
 
         footer = findViewById(R.id.footerLinearLayout);
+        searchView = findViewById(R.id.searchView);
 
         if (MainActivity.isAdmin) {
             setTitle("Admin");
@@ -46,6 +51,36 @@ public class TablesActivity extends AppCompatActivity {
 
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                search(s);
+                return false;
+            }
+        });
+    }
+
+    private void search(String s) {
+        List<Doctors> doctorsList = new ArrayList<>();
+        for (Doctors doctors : db.doctorsDao().getAll()) {
+            if (doctors.firstName.toLowerCase().contains(s.toLowerCase()) ||
+                    doctors.lastName.toLowerCase().contains(s.toLowerCase())){
+                doctorsList.add(doctors);
+            }
+        }
+
+        if (doctorsList.isEmpty()){
+            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            doctorsAdminAdapter.search(doctorsList);
+        }
     }
 
     @Override
@@ -60,6 +95,7 @@ public class TablesActivity extends AppCompatActivity {
         TextView noneTextView = findViewById(R.id.noneTextView);
         noneTextView.setVisibility(TextView.INVISIBLE);
         footer.setVisibility(View.VISIBLE);
+        searchView.setVisibility(View.VISIBLE);
         switch(id){
             case R.id.doctorsMenuItem:
                 setTitle("Doctors");

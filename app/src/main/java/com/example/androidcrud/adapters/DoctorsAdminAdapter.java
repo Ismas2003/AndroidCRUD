@@ -21,6 +21,11 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
     Context context;
     List<Doctors> doctors;
 
+    public void search(List<Doctors> doctors) {
+        this.doctors = doctors;
+        notifyDataSetChanged();
+    }
+
     public DoctorsAdminAdapter(Context context, List<Doctors> doctors) {
         this.context = context;
         this.doctors = doctors;
