@@ -27,6 +27,24 @@
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/menu/tables_bottom_buttons.xml" value="0.3614583333333333" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/menu/tables_menu.xml" value="0.3614583333333333" />
         <entry key="..\:/AndroidStudioProjects/BasaDannih/app/src/main/res/layout/activity_main.xml" value="0.24909420289855072" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/drawable/divider.xml" value="0.3635" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/drawable/ic_add.xml" value="0.3635" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/drawable/ic_delete.xml" value="0.3635" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/drawable/ic_generate.xml" value="0.3635" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/drawable/ic_save.xml" value="0.3635" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_doctors_ae.xml" value="0.3066123188405797" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_operations_ae.xml" value="0.33" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_operations_types_ae.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_patients_ae.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_tables.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/activity_wards_ae.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/rv_doctors_admin.xml" value="0.33" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/rv_doctors_user.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/rv_operations.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/rv_operations_types.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/rv_patients.xml" value="0.3591485507246377" />
+        <entry key="..\:/Programs AS/AndroidCRUD/app/src/main/res/layout/rv_wards.xml" value="0.3591485507246377" />
         <entry key="..\:/Programs AS/BasaDannih/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Programs AS/BasaDannih/app/src/main/res/layout/viborka.xml" value="0.3614583333333333" />
       </map>
