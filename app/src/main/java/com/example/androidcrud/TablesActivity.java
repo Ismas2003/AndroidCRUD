@@ -19,8 +19,20 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.androidcrud.adapters.DoctorsAdminAdapter;
 import com.example.androidcrud.adapters.DoctorsUserAdapter;
+import com.example.androidcrud.adapters.OperationsAdapter;
+import com.example.androidcrud.adapters.OperationsTypesAdapter;
+import com.example.androidcrud.adapters.PatientsAdapter;
+import com.example.androidcrud.adapters.WardsAdapter;
 import com.example.androidcrud.addEditActivities.DoctorsAeActivity;
+import com.example.androidcrud.addEditActivities.OperationsAeActivity;
+import com.example.androidcrud.addEditActivities.OperationsTypesAeActivity;
+import com.example.androidcrud.addEditActivities.PatientsAeActivity;
+import com.example.androidcrud.addEditActivities.WardsAeActivity;
 import com.example.androidcrud.tables.Doctors;
+import com.example.androidcrud.tables.Operations;
+import com.example.androidcrud.tables.OperationsTypes;
+import com.example.androidcrud.tables.Patients;
+import com.example.androidcrud.tables.Wards;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +42,11 @@ public class TablesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DoctorsAdminAdapter doctorsAdminAdapter;
     DoctorsUserAdapter doctorsUserAdapter;
-    View footer;
+    OperationsAdapter operationsAdapter;
+    OperationsTypesAdapter operationsTypesAdapter;
+    PatientsAdapter patientsAdapter;
+    WardsAdapter wardsAdapter;
+    View btnAdd;
     SearchView searchView;
 
     @Override
@@ -38,7 +54,6 @@ public class TablesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tables);
 
-        footer = findViewById(R.id.footerLinearLayout);
         searchView = findViewById(R.id.searchView);
 
         if (MainActivity.isAdmin) {
@@ -92,9 +107,10 @@ public class TablesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        btnAdd = findViewById(R.id.btn_add);
         TextView noneTextView = findViewById(R.id.noneTextView);
         noneTextView.setVisibility(TextView.INVISIBLE);
-        footer.setVisibility(View.VISIBLE);
+        btnAdd.setVisibility(View.VISIBLE);
         searchView.setVisibility(View.VISIBLE);
         switch(id){
             case R.id.doctorsMenuItem:
@@ -103,24 +119,31 @@ public class TablesActivity extends AppCompatActivity {
                     fillDoctorsAdminRecycler(db.doctorsDao().getAll());
                 } else {
                     fillDoctorsUserRecycler(db.doctorsDao().getAll());
+                    btnAdd.setVisibility(View.INVISIBLE);
                 }
                 return true;
             case R.id.operationsMenuItem:
                 setTitle("Operations");
+                fillOperationsRecycler(db.operationsDao().getAll());
                 return true;
             case R.id.operationsTypesMenuItem:
                 setTitle("Operations Types");
+                fillOperationsTypesRecycler(db.operationsTypesDao().getAll());
                 return true;
             case R.id.patientsMenuItem:
                 setTitle("Patients");
+                fillPatientsRecycler(db.patientsDao().getAll());
                 return true;
             case R.id.wardsMenuItem:
                 setTitle("Wards");
+                fillWardsRecycler(db.wardsDao().getAll());
                 return true;
             case R.id.noneMenuItem:
                 setTitle("None");
                 noneTextView.setVisibility(TextView.VISIBLE);
                 clearRecyclerView();
+                btnAdd.setVisibility(View.INVISIBLE);
+                searchView.setVisibility(View.INVISIBLE);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -147,13 +170,59 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(doctorsUserAdapter);
     }
 
+    private void fillOperationsRecycler(List<Operations> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        operationsAdapter = new OperationsAdapter(this, list);
+        recyclerView.setAdapter(operationsAdapter);
+    }
+
+    private void fillOperationsTypesRecycler(List<OperationsTypes> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        operationsTypesAdapter = new OperationsTypesAdapter(this, list);
+        recyclerView.setAdapter(operationsTypesAdapter);
+    }
+
+    private void fillPatientsRecycler(List<Patients> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        patientsAdapter = new PatientsAdapter(this, list);
+        recyclerView.setAdapter(patientsAdapter);
+    }
+
+    private void fillWardsRecycler(List<Wards> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        wardsAdapter = new WardsAdapter(this, list);
+        recyclerView.setAdapter(wardsAdapter);
+    }
+
     public void onBackToMainClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void onAddClick(View view) {
-        Intent intent = new Intent(this, DoctorsAeActivity.class);
-        startActivity(intent);
+        if (getTitle().equals("Doctors")) {
+            Intent intent = new Intent(this, DoctorsAeActivity.class);
+            startActivity(intent);
+        } else if (getTitle().equals("Operations")) {
+            Intent intent = new Intent(this, OperationsAeActivity.class);
+            startActivity(intent);
+        } else if (getTitle().equals("Operations Types")) {
+            Intent intent = new Intent(this, OperationsTypesAeActivity.class);
+            startActivity(intent);
+        } else if (getTitle().equals("Patients")) {
+            Intent intent = new Intent(this, PatientsAeActivity.class);
+            startActivity(intent);
+        } else if (getTitle().equals("Wards")) {
+            Intent intent = new Intent(this, WardsAeActivity.class);
+            startActivity(intent);
+        }
     }
 }

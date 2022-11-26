@@ -14,41 +14,41 @@ import com.example.androidcrud.tables.Doctors;
 
 import java.util.List;
 
-public class DoctorsUserAdapter extends RecyclerView.Adapter<DoctorsUserAdapter.DoctorsViewHolder> {
+public class DoctorsUserAdapter extends RecyclerView.Adapter<DoctorsUserAdapter.AdapterViewHolder> {
 
     Context context;
-    List<Doctors> doctors;
+    List<Doctors> list;
 
-    public DoctorsUserAdapter(Context context, List<Doctors> doctors) {
+    public DoctorsUserAdapter(Context context, List<Doctors> list) {
         this.context = context;
-        this.doctors = doctors;
+        this.list = list;
     }
 
     @NonNull
     @Override
-    public DoctorsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View doctorsItems = LayoutInflater.from(context).inflate(R.layout.rv_doctors_user, parent, false);
-        return new DoctorsViewHolder(doctorsItems);
+    public AdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.rv_doctors_user, parent, false);
+        return new AdapterViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DoctorsUserAdapter.DoctorsViewHolder holder, int position) {
-        holder.firstName.setText(doctors.get(position).firstName);
-        holder.lastName.setText(doctors.get(position).lastName);
-        holder.patronymic.setText(doctors.get(position).patronymic);
-        holder.experience.setText(String.valueOf(doctors.get(position).experience));
+    public void onBindViewHolder(@NonNull AdapterViewHolder holder, int position) {
+        holder.firstName.setText(list.get(position).firstName);
+        holder.lastName.setText(list.get(position).lastName);
+        holder.patronymic.setText(list.get(position).patronymic);
+        holder.experience.setText(String.valueOf(list.get(position).experience));
     }
 
     @Override
     public int getItemCount() {
-        return doctors.size();
+        return list.size();
     }
 
-    public static final class DoctorsViewHolder extends RecyclerView.ViewHolder {
+    public static final class AdapterViewHolder extends RecyclerView.ViewHolder {
 
-        TextView firstName, lastName, patronymic, experience, login, password;
+        TextView firstName, lastName, patronymic, experience;
 
-        public DoctorsViewHolder(@NonNull View itemView) {
+        public AdapterViewHolder(@NonNull View itemView) {
             super(itemView);
 
             firstName = itemView.findViewById(R.id.tv_first_name);

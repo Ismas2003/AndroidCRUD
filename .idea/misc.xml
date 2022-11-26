@@ -8,13 +8,21 @@
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_doctors_ae.xml" value="0.27445652173913043" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_doctors_edit_admin.xml" value="0.3614583333333333" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_main.xml" value="0.24909420289855072" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_operations_ae.xml" value="0.22644927536231885" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_operations_types_ae.xml" value="0.22644927536231885" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_patients_ae.xml" value="0.22644927536231885" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_tables.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/activity_wards_ae.xml" value="0.22644927536231885" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/doctors_rv_layout.xml" value="0.28125" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/item_layout.xml" value="0.2441123188405797" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_doctors.xml" value="0.28125" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_doctors_admin.xml" value="0.3625" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_doctors_foruser.xml" value="0.2758152173913043" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_doctors_user.xml" value="0.2758152173913043" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_operations.xml" value="0.3625" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_operations_types.xml" value="0.27445652173913043" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_patients.xml" value="0.27445652173913043" />
+        <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/rv_wards.xml" value="0.27445652173913043" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/layout/switch_item.xml" value="0.2441123188405797" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/menu/tables_bottom_buttons.xml" value="0.3614583333333333" />
         <entry key="..\:/AndroidStudioProjects/AndroidCRUD/app/src/main/res/menu/tables_menu.xml" value="0.3614583333333333" />

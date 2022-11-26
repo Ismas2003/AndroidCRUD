@@ -12,21 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidcrud.R;
-import com.example.androidcrud.addEditActivities.DoctorsAeActivity;
-import com.example.androidcrud.tables.Doctors;
+import com.example.androidcrud.addEditActivities.PatientsAeActivity;
+import com.example.androidcrud.tables.Patients;
 
 import java.util.List;
 
-public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapter.AdapterViewHolder> {
+public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.AdapterViewHolder> {
     Context context;
-    List<Doctors> list;
+    List<Patients> list;
 
-    public void search(List<Doctors> list) {
+    public void search(List<Patients> list) {
         this.list = list;
         notifyDataSetChanged();
     }
 
-    public DoctorsAdminAdapter(Context context, List<Doctors> list) {
+    public PatientsAdapter(Context context, List<Patients> list) {
         this.context = context;
         this.list = list;
     }
@@ -34,7 +34,7 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
     @NonNull
     @Override
     public AdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.rv_doctors_admin, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.rv_patients, parent, false);
         return new AdapterViewHolder(view);
     }
 
@@ -43,12 +43,11 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
         holder.firstName.setText(list.get(position).firstName);
         holder.lastName.setText(list.get(position).lastName);
         holder.patronymic.setText(list.get(position).patronymic);
-        holder.experience.setText(String.valueOf(list.get(position).experience));
-        holder.login.setText(list.get(position).login);
-        holder.password.setText(list.get(position).password);
+        holder.address.setText(list.get(position).address);
+        holder.wardId.setText(String.valueOf(list.get(position).wardId));
 
         holder.itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, DoctorsAeActivity.class);
+            Intent intent = new Intent(context, PatientsAeActivity.class);
             intent.putExtra("id", position);
             context.startActivity(intent);
         });
@@ -61,7 +60,7 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
 
     public static final class AdapterViewHolder extends RecyclerView.ViewHolder {
 
-        TextView firstName, lastName, patronymic, experience, login, password;
+        TextView firstName, lastName, patronymic, address, wardId;
 
         public AdapterViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,9 +68,8 @@ public class DoctorsAdminAdapter extends RecyclerView.Adapter<DoctorsAdminAdapte
             firstName = itemView.findViewById(R.id.tv_first_name);
             lastName = itemView.findViewById(R.id.tv_last_name);
             patronymic = itemView.findViewById(R.id.tv_patronymic);
-            experience = itemView.findViewById(R.id.tv_experience);
-            login = itemView.findViewById(R.id.tv_login);
-            password = itemView.findViewById(R.id.tv_password);
+            address = itemView.findViewById(R.id.tv_address);
+            wardId = itemView.findViewById(R.id.tv_ward_id);
         }
     }
 }
