@@ -2,11 +2,14 @@ package com.example.androidcrud;
 
 import static com.example.androidcrud.MainActivity.db;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,19 +85,84 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     private void search(String s) {
-        List<Doctors> doctorsList = new ArrayList<>();
-        for (Doctors doctors : db.doctorsDao().getAll()) {
-            if (doctors.firstName.toLowerCase().contains(s.toLowerCase()) ||
-                    doctors.lastName.toLowerCase().contains(s.toLowerCase())){
-                doctorsList.add(doctors);
+        if (getTitle().equals("Doctors")){
+            List<Doctors> list = new ArrayList<>();
+            for (Doctors items : db.doctorsDao().getAll()) {
+                if (items.firstName.toLowerCase().contains(s.toLowerCase()) ||
+                        items.lastName.toLowerCase().contains(s.toLowerCase())){
+                    list.add(items);
+                }
+            }
+
+            if (list.isEmpty()){
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                doctorsAdminAdapter.search(list);
             }
         }
+        else if (getTitle().equals("Patients")){
+            List<Patients> list = new ArrayList<>();
+            for (Patients items : db.patientsDao().getAll()) {
+                if (items.firstName.toLowerCase().contains(s.toLowerCase()) ||
+                        items.lastName.toLowerCase().contains(s.toLowerCase())){
+                    list.add(items);
+                }
+            }
 
-        if (doctorsList.isEmpty()){
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            if (list.isEmpty()){
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                patientsAdapter.search(list);
+            }
         }
-        else {
-            doctorsAdminAdapter.search(doctorsList);
+        else if (getTitle().equals("Operations")){
+            List<Operations> list = new ArrayList<>();
+            for (Operations items : db.operationsDao().getAll()) {
+                if (items.name.toLowerCase().contains(s.toLowerCase()) ||
+                        String.valueOf(items.operationTypeId).contains(s)){
+                    list.add(items);
+                }
+            }
+
+            if (list.isEmpty()){
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                operationsAdapter.search(list);
+            }
+        }
+        else if (getTitle().equals("Operations types")){
+            List<OperationsTypes> list = new ArrayList<>();
+            for (OperationsTypes items : db.operationsTypesDao().getAll()) {
+                if (items.name.toLowerCase().contains(s.toLowerCase())) {
+                    list.add(items);
+                }
+            }
+
+            if (list.isEmpty()){
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                operationsTypesAdapter.search(list);
+            }
+        }
+        else if (getTitle().equals("Wards")){
+            List<Wards> list = new ArrayList<>();
+            for (Wards items : db.wardsDao().getAll()) {
+                if (String.valueOf(items.capacity).contains(s) ||
+                        String.valueOf(items.doctorId).contains(s)){
+                    list.add(items);
+                }
+            }
+
+            if (list.isEmpty()){
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                wardsAdapter.search(list);
+            }
         }
     }
 
@@ -203,8 +271,15 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     public void onBackToMainClick(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Exit account");
+        builder.setMessage("Are you sure you want to exit from account?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+        builder.show();
     }
 
     public void onAddClick(View view) {

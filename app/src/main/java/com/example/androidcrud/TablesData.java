@@ -41,9 +41,9 @@ public class TablesData {
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Экстренные",
                     "Производятся немедленно после постановки диагноза. Цель — спасение жизни пациента"));
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Срочные",
-                    "Производятся в течение 24 часов после постановки диагноза. Цель — уменьшение тяжести последствий операции"));
+                    "Производятся в течение 24 часов после постановки диагноза"));
             MainActivity.db.operationsTypesDao().insertAll(new OperationsTypes("Плановые",
-                    "Выполняются после полной предоперационной подготовки в то время, которое удобно из организационных соображений"));
+                    "Выполняются после полной предоперационной подготовки"));
         }
         if (wardsCheck.isEmpty()){
             MainActivity.db.wardsDao().insertAll(new Wards(15,1));
