@@ -45,6 +45,7 @@ public class OperationsTypesAeActivity extends AppCompatActivity {
 
     public void onBackToTablesClick(View view) {
         Intent intent = new Intent(this, TablesActivity.class);
+        intent.putExtra("table", "operations_types");
         startActivity(intent);
     }
 
@@ -62,6 +63,7 @@ public class OperationsTypesAeActivity extends AppCompatActivity {
             MainActivity.db.operationsTypesDao().insertAll(item);
 
             Intent intent = new Intent(this, TablesActivity.class);
+            intent.putExtra("table", "operations_types");
             startActivity(intent);
         }
     }
@@ -73,6 +75,7 @@ public class OperationsTypesAeActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", (dialog, which) -> {
                     MainActivity.db.operationsTypesDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
+                    intent.putExtra("table", "operations_types");
                     startActivity(intent);
                 })
                 .setNegativeButton("No", null)

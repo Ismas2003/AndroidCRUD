@@ -52,6 +52,7 @@ public class DoctorsAeActivity extends AppCompatActivity {
 
     public void onBackToTablesClick(View view) {
         Intent intent = new Intent(this, TablesActivity.class);
+        intent.putExtra("table", "doctors");
         startActivity(intent);
     }
 
@@ -84,6 +85,7 @@ public class DoctorsAeActivity extends AppCompatActivity {
             MainActivity.db.doctorsDao().insertAll(item);
 
             Intent intent = new Intent(this, TablesActivity.class);
+            intent.putExtra("table", "doctors");
             startActivity(intent);
         }
     }
@@ -95,6 +97,7 @@ public class DoctorsAeActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", (dialog, which) -> {
                     MainActivity.db.doctorsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
+                    intent.putExtra("table", "doctors");
                     startActivity(intent);
                 })
                 .setNegativeButton("No", null)

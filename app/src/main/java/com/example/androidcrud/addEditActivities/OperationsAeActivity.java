@@ -48,6 +48,7 @@ public class OperationsAeActivity extends AppCompatActivity {
 
     public void onBackToTablesClick(View view) {
         Intent intent = new Intent(this, TablesActivity.class);
+        intent.putExtra("table", "operations");
         startActivity(intent);
     }
 
@@ -66,8 +67,8 @@ public class OperationsAeActivity extends AppCompatActivity {
             try {
                 item.operationTypeId = Integer.parseInt(operationTypeId.getText().toString());
                 item.doctorId = Integer.parseInt(doctorId.getText().toString());
-                if (MainActivity.db.doctorsDao().getAll().get(item.doctorId) == null ||
-                        MainActivity.db.operationsTypesDao().getAll().get(item.operationTypeId) == null) {
+                if (MainActivity.db.doctorsDao().getAll().get(item.doctorId - 1) == null ||
+                        MainActivity.db.operationsTypesDao().getAll().get(item.operationTypeId - 1) == null) {
                     throw new Exception();
                 }
             } catch(Exception e) {
@@ -82,6 +83,7 @@ public class OperationsAeActivity extends AppCompatActivity {
             MainActivity.db.operationsDao().insertAll(item);
 
             Intent intent = new Intent(this, TablesActivity.class);
+            intent.putExtra("table", "operations");
             startActivity(intent);
         }
     }
@@ -93,6 +95,7 @@ public class OperationsAeActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", (dialog, which) -> {
                     MainActivity.db.operationsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
+                    intent.putExtra("table", "operations");
                     startActivity(intent);
                 })
                 .setNegativeButton("No", null)

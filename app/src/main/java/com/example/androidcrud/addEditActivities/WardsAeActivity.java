@@ -44,6 +44,7 @@ public class WardsAeActivity extends AppCompatActivity {
 
     public void onBackToTablesClick(View view) {
         Intent intent = new Intent(this, TablesActivity.class);
+        intent.putExtra("table", "wards");
         startActivity(intent);
     }
 
@@ -61,7 +62,7 @@ public class WardsAeActivity extends AppCompatActivity {
                 if (item.capacity < 0) {
                     throw new Exception();
                 }
-                if (MainActivity.db.doctorsDao().getAll().get(item.doctorId) == null) {
+                if (MainActivity.db.doctorsDao().getAll().get(item.doctorId - 1) == null) {
                     throw new Exception();
                 }
             }
@@ -77,6 +78,7 @@ public class WardsAeActivity extends AppCompatActivity {
             MainActivity.db.wardsDao().insertAll(item);
 
             Intent intent = new Intent(this, TablesActivity.class);
+            intent.putExtra("table", "wards");
             startActivity(intent);
         }
     }
@@ -88,6 +90,7 @@ public class WardsAeActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", (dialog, which) -> {
                     MainActivity.db.wardsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
+                    intent.putExtra("table", "wards");
                     startActivity(intent);
                 })
                 .setNegativeButton("No", null)

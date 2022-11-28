@@ -50,6 +50,7 @@ public class PatientsAeActivity extends AppCompatActivity {
 
     public void onBackToTablesClick(View view) {
         Intent intent = new Intent(this, TablesActivity.class);
+        intent.putExtra("table", "patients");
         startActivity(intent);
     }
 
@@ -69,13 +70,13 @@ public class PatientsAeActivity extends AppCompatActivity {
             item.address = address.getText().toString();
             try {
                 item.wardId = Integer.parseInt(wardId.getText().toString());
-                if (MainActivity.db.wardsDao().getAll().get(item.wardId) == null) {
+                if (MainActivity.db.wardsDao().getAll().get(item.wardId - 1) == null) {
                     throw new Exception();
                 }
             } catch(Exception e) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Error");
-                builder.setMessage("Ward ID must be a number");
+                builder.setMessage("Ward ID must be a number and existing ward ID");
                 builder.setPositiveButton("OK", null);
                 builder.show();
                 return;
@@ -84,6 +85,7 @@ public class PatientsAeActivity extends AppCompatActivity {
             MainActivity.db.patientsDao().insertAll(item);
 
             Intent intent = new Intent(this, TablesActivity.class);
+            intent.putExtra("table", "patients");
             startActivity(intent);
         }
     }
@@ -95,6 +97,7 @@ public class PatientsAeActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", (dialog, which) -> {
                     MainActivity.db.patientsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
+                    intent.putExtra("table", "patients");
                     startActivity(intent);
                 })
                 .setNegativeButton("No", null)

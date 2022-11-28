@@ -51,6 +51,7 @@ public class TablesActivity extends AppCompatActivity {
     WardsAdapter wardsAdapter;
     View btnAdd;
     SearchView searchView;
+    TextView noneTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class TablesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tables);
 
         searchView = findViewById(R.id.searchView);
+        noneTextView = findViewById(R.id.noneTextView);
 
         if (MainActivity.isAdmin) {
             setTitle("Admin");
@@ -82,6 +84,42 @@ public class TablesActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        try {
+            String tableName = getIntent().getStringExtra("table");
+
+            switch (tableName) {
+                case "doctors":
+                    if (MainActivity.isAdmin) {
+                        fillDoctorsAdminRecycler(db.doctorsDao().getAll());
+                    } else {
+                        fillDoctorsUserRecycler(db.doctorsDao().getAll());
+                    }
+                    setTitle("Doctors");
+                    break;
+                case "operations":
+                    fillOperationsRecycler(db.operationsDao().getAll());
+                    setTitle("Operations");
+                    break;
+                case "operations_types":
+                    fillOperationsTypesRecycler(db.operationsTypesDao().getAll());
+                    setTitle("Operations types");
+                    break;
+                case "patients":
+                    fillPatientsRecycler(db.patientsDao().getAll());
+                    setTitle("Patients");
+                    break;
+                case "wards":
+                    fillWardsRecycler(db.wardsDao().getAll());
+                    setTitle("Wards");
+                    break;
+            }
+
+            noneTextView.setVisibility(View.INVISIBLE);
+        }
+        catch (Exception e) {
+            return;
+        }
     }
 
     private void search(String s) {
@@ -176,7 +214,6 @@ public class TablesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         btnAdd = findViewById(R.id.btn_add);
-        TextView noneTextView = findViewById(R.id.noneTextView);
         noneTextView.setVisibility(TextView.INVISIBLE);
         btnAdd.setVisibility(View.VISIBLE);
         searchView.setVisibility(View.VISIBLE);
@@ -222,7 +259,7 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(null);
     }
 
-    private void fillDoctorsAdminRecycler(List<Doctors> list) {
+    public void fillDoctorsAdminRecycler(List<Doctors> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -230,7 +267,7 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(doctorsAdminAdapter);
     }
 
-    private void fillDoctorsUserRecycler(List<Doctors> list) {
+    public void fillDoctorsUserRecycler(List<Doctors> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -238,7 +275,7 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(doctorsUserAdapter);
     }
 
-    private void fillOperationsRecycler(List<Operations> list) {
+    public void fillOperationsRecycler(List<Operations> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -246,7 +283,7 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(operationsAdapter);
     }
 
-    private void fillOperationsTypesRecycler(List<OperationsTypes> list) {
+    public void fillOperationsTypesRecycler(List<OperationsTypes> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -254,7 +291,7 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(operationsTypesAdapter);
     }
 
-    private void fillPatientsRecycler(List<Patients> list) {
+    public void fillPatientsRecycler(List<Patients> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -262,7 +299,7 @@ public class TablesActivity extends AppCompatActivity {
         recyclerView.setAdapter(patientsAdapter);
     }
 
-    private void fillWardsRecycler(List<Wards> list) {
+    public void fillWardsRecycler(List<Wards> list) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
