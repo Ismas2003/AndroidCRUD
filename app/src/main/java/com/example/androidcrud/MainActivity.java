@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -34,18 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database").allowMainThreadQueries().build();
-
-        // db.clearAllTables();
-
-        // FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
-        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
-        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations_types';");
-        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Patients';");
-        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
-        // mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
-
-        // TablesData tablesData = new TablesData();
-        // tablesData.fillTables();
     }
 
     public static String generateCaptcha() {
@@ -100,5 +89,25 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Wrong captcha", Toast.LENGTH_SHORT).show();
             captcha.setText(generateCaptcha());
         }
+    }
+
+    public void resetDatabase(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Reset database");
+        builder.setMessage("Are you sure you want to reset database?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            db.clearAllTables();
+            FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
+            mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
+            mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations_types';");
+            mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Patients';");
+            mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
+            mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
+            TablesData tablesData = new TablesData();
+            tablesData.fillTables();
+            Toast.makeText(this, "Database reset", Toast.LENGTH_SHORT).show();
+        });
+        builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+        builder.show();
     }
 }
