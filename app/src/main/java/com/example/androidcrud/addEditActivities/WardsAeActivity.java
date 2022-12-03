@@ -51,9 +51,9 @@ public class WardsAeActivity extends AppCompatActivity {
     public void onSaveClick(View view) {
         if (capacity.getText().toString().equals("") || doctorId.getText().toString().equals("")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("All fields must be filled");
-            builder.setPositiveButton("OK", null);
+            builder.setTitle(R.string.error);
+            builder.setMessage(R.string.not_filled_fields);
+            builder.setPositiveButton(R.string.ok, null);
             builder.show();
         } else {
             try {
@@ -68,9 +68,9 @@ public class WardsAeActivity extends AppCompatActivity {
             }
             catch (Exception e) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Error");
-                builder.setMessage("Capacity must be a positive integer and doctorId must be an existing doctor's id");
-                builder.setPositiveButton("OK", null);
+                builder.setTitle(R.string.error);
+                builder.setMessage(R.string.not_number_capacity_and_w_id);
+                builder.setPositiveButton(R.string.ok, null);
                 builder.show();
                 return;
             }
@@ -85,15 +85,15 @@ public class WardsAeActivity extends AppCompatActivity {
 
     public void onDeleteClick(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete ward")
-                .setMessage("Are you sure you want to delete this ward?")
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setTitle(R.string.delete_ward)
+                .setMessage(R.string.delete_ward_msg)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
                     MainActivity.db.wardsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
                     intent.putExtra("table", "wards");
                     startActivity(intent);
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(R.string.no, null)
                 .show();
     }
 }

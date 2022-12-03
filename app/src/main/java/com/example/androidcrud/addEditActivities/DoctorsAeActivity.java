@@ -61,9 +61,9 @@ public class DoctorsAeActivity extends AppCompatActivity {
                 patronymic.getText().toString().equals("") || experience.getText().toString().equals("") ||
                 login.getText().toString().equals("") || password.getText().toString().equals("")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("All fields must be filled");
-            builder.setPositiveButton("OK", null);
+            builder.setTitle(R.string.error);
+            builder.setMessage(R.string.not_filled_fields);
+            builder.setPositiveButton(R.string.ok, null);
             builder.show();
         } else {
             item.firstName = firstName.getText().toString();
@@ -73,9 +73,9 @@ public class DoctorsAeActivity extends AppCompatActivity {
                 item.experience = Integer.parseInt(experience.getText().toString());
             } catch(NumberFormatException nfe) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Error");
-                builder.setMessage("Experience must be a number");
-                builder.setPositiveButton("OK", null);
+                builder.setTitle(R.string.error);
+                builder.setMessage(R.string.experience_not_number);
+                builder.setPositiveButton(R.string.ok, null);
                 builder.show();
                 return;
             }
@@ -94,15 +94,15 @@ public class DoctorsAeActivity extends AppCompatActivity {
 
     public void onDeleteClick(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete doctor")
-                .setMessage("Are you sure you want to delete this doctor?")
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setTitle(R.string.delete_doctor)
+                .setMessage(R.string.delete_doctor_msg)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
                     MainActivity.db.doctorsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
                     intent.putExtra("table", "doctors");
                     startActivity(intent);
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(R.string.no, null)
                 .show();
     }
 }

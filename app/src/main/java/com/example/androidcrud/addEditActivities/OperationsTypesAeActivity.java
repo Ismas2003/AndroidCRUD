@@ -52,9 +52,9 @@ public class OperationsTypesAeActivity extends AppCompatActivity {
     public void onSaveClick(View view) {
         if (name.getText().toString().equals("") || description.getText().toString().equals("")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("All fields must be filled");
-            builder.setPositiveButton("OK", null);
+            builder.setTitle(R.string.error);
+            builder.setMessage(R.string.not_filled_fields);
+            builder.setPositiveButton(R.string.ok, null);
             builder.show();
         } else {
             item.name = name.getText().toString();
@@ -70,15 +70,15 @@ public class OperationsTypesAeActivity extends AppCompatActivity {
 
     public void onDeleteClick(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete operation type")
-                .setMessage("Are you sure you want to delete this operation type?")
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setTitle(R.string.delete_ot)
+                .setMessage(R.string.delete_ot_msg)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
                     MainActivity.db.operationsTypesDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
                     intent.putExtra("table", "operations_types");
                     startActivity(intent);
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(R.string.no, null)
                 .show();
     }
 }

@@ -59,9 +59,9 @@ public class PatientsAeActivity extends AppCompatActivity {
                 patronymic.getText().toString().equals("") || address.getText().toString().equals("") ||
                 wardId.getText().toString().equals("")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("All fields must be filled");
-            builder.setPositiveButton("OK", null);
+            builder.setTitle(R.string.error);
+            builder.setMessage(R.string.not_filled_fields);
+            builder.setPositiveButton(R.string.ok, null);
             builder.show();
         } else {
             item.firstName = firstName.getText().toString();
@@ -75,9 +75,9 @@ public class PatientsAeActivity extends AppCompatActivity {
                 }
             } catch(Exception e) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Error");
-                builder.setMessage("Ward ID must be a number and existing ward ID");
-                builder.setPositiveButton("OK", null);
+                builder.setTitle(R.string.error);
+                builder.setMessage(R.string.not_number_ward_id);
+                builder.setPositiveButton(R.string.ok, null);
                 builder.show();
                 return;
             }
@@ -92,8 +92,8 @@ public class PatientsAeActivity extends AppCompatActivity {
 
     public void onDeleteClick(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete patient")
-                .setMessage("Are you sure you want to delete this patient?")
+                .setTitle(R.string.delete_patient)
+                .setMessage(R.string.delete_patient_msg)
                 .setPositiveButton("Yes", (dialog, which) -> {
                     MainActivity.db.patientsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);

@@ -26,7 +26,7 @@
             android:layout_marginTop="10dp"
             android:onClick="resetDatabase"
             android:text="@string/authentication"
-            android:textSize="38sp"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

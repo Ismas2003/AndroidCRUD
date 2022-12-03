@@ -63,9 +63,9 @@ public class TablesActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btn_add);
 
         if (MainActivity.isAdmin) {
-            setTitle("Admin");
+            setTitle(getString(R.string.admin));
         } else {
-            setTitle("User");
+            setTitle(getString(R.string.user));
         }
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -96,23 +96,23 @@ public class TablesActivity extends AppCompatActivity {
                     } else {
                         fillDoctorsUserRecycler(db.doctorsDao().getAll());
                     }
-                    setTitle("Doctors");
+                    setTitle(R.string.doctors);
                     break;
                 case "operations":
                     fillOperationsRecycler(db.operationsDao().getAll());
-                    setTitle("Operations");
+                    setTitle(R.string.operations);
                     break;
                 case "operations_types":
                     fillOperationsTypesRecycler(db.operationsTypesDao().getAll());
-                    setTitle("Operations types");
+                    setTitle(R.string.operation_types);
                     break;
                 case "patients":
                     fillPatientsRecycler(db.patientsDao().getAll());
-                    setTitle("Patients");
+                    setTitle(R.string.patients);
                     break;
                 case "wards":
                     fillWardsRecycler(db.wardsDao().getAll());
-                    setTitle("Wards");
+                    setTitle(R.string.wards);
                     break;
             }
             searchView.setVisibility(View.VISIBLE);
@@ -125,7 +125,7 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     private void search(String s) {
-        if (getTitle().equals("Doctors")){
+        if (getTitle().equals(getString(R.string.doctors))) {
             List<Doctors> list = new ArrayList<>();
             for (Doctors items : db.doctorsDao().getAll()) {
                 if (items.firstName.toLowerCase().contains(s.toLowerCase()) ||
@@ -135,13 +135,13 @@ public class TablesActivity extends AppCompatActivity {
             }
 
             if (list.isEmpty()){
-                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.no_data_found), Toast.LENGTH_SHORT).show();
             }
             else {
                 doctorsAdminAdapter.search(list);
             }
         }
-        else if (getTitle().equals("Patients")){
+        else if (getTitle().equals(getString(R.string.operations))) {
             List<Patients> list = new ArrayList<>();
             for (Patients items : db.patientsDao().getAll()) {
                 if (items.firstName.toLowerCase().contains(s.toLowerCase()) ||
@@ -151,13 +151,13 @@ public class TablesActivity extends AppCompatActivity {
             }
 
             if (list.isEmpty()){
-                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.no_data_found), Toast.LENGTH_SHORT).show();
             }
             else {
                 patientsAdapter.search(list);
             }
         }
-        else if (getTitle().equals("Operations")){
+        else if (getTitle().equals(getString(R.string.operation_types))) {
             List<Operations> list = new ArrayList<>();
             for (Operations items : db.operationsDao().getAll()) {
                 if (items.name.toLowerCase().contains(s.toLowerCase()) ||
@@ -167,13 +167,13 @@ public class TablesActivity extends AppCompatActivity {
             }
 
             if (list.isEmpty()){
-                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.no_data_found), Toast.LENGTH_SHORT).show();
             }
             else {
                 operationsAdapter.search(list);
             }
         }
-        else if (getTitle().equals("Operations types")){
+        else if (getTitle().equals(getString(R.string.patients))) {
             List<OperationsTypes> list = new ArrayList<>();
             for (OperationsTypes items : db.operationsTypesDao().getAll()) {
                 if (items.name.toLowerCase().contains(s.toLowerCase())) {
@@ -182,13 +182,13 @@ public class TablesActivity extends AppCompatActivity {
             }
 
             if (list.isEmpty()){
-                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.no_data_found), Toast.LENGTH_SHORT).show();
             }
             else {
                 operationsTypesAdapter.search(list);
             }
         }
-        else if (getTitle().equals("Wards")){
+        else if (getTitle().equals(getString(R.string.wards))) {
             List<Wards> list = new ArrayList<>();
             for (Wards items : db.wardsDao().getAll()) {
                 if (String.valueOf(items.capacity).contains(s) ||
@@ -198,7 +198,7 @@ public class TablesActivity extends AppCompatActivity {
             }
 
             if (list.isEmpty()){
-                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.no_data_found), Toast.LENGTH_SHORT).show();
             }
             else {
                 wardsAdapter.search(list);
@@ -220,7 +220,7 @@ public class TablesActivity extends AppCompatActivity {
         searchView.setVisibility(View.VISIBLE);
         switch(id){
             case R.id.doctorsMenuItem:
-                setTitle("Doctors");
+                setTitle(R.string.doctors);
                 if (MainActivity.isAdmin) {
                     fillDoctorsAdminRecycler(db.doctorsDao().getAll());
                 } else {
@@ -229,23 +229,24 @@ public class TablesActivity extends AppCompatActivity {
                 }
                 return true;
             case R.id.operationsMenuItem:
-                setTitle("Operations");
+                setTitle(R.string.operations);
                 fillOperationsRecycler(db.operationsDao().getAll());
                 return true;
             case R.id.operationsTypesMenuItem:
-                setTitle("Operations Types");
+                setTitle(R.string.operation_types);
                 fillOperationsTypesRecycler(db.operationsTypesDao().getAll());
                 return true;
             case R.id.patientsMenuItem:
-                setTitle("Patients");
+                setTitle(R.string.patients);
                 fillPatientsRecycler(db.patientsDao().getAll());
                 return true;
             case R.id.wardsMenuItem:
-                setTitle("Wards");
+                setTitle(R.string.wards);
                 fillWardsRecycler(db.wardsDao().getAll());
                 return true;
             case R.id.noneMenuItem:
-                setTitle("None");
+                if (MainActivity.isAdmin) setTitle(getString(R.string.admin));
+                else setTitle(getString(R.string.user));
                 noneTextView.setVisibility(TextView.VISIBLE);
                 clearRecyclerView();
                 btnAdd.setVisibility(View.INVISIBLE);

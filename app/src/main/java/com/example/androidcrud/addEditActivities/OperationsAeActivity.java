@@ -57,9 +57,9 @@ public class OperationsAeActivity extends AppCompatActivity {
                 operationTypeId.getText().toString().equals("") ||
                 doctorId.getText().toString().equals("")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("All fields must be filled");
-            builder.setPositiveButton("OK", null);
+            builder.setTitle(R.string.error);
+            builder.setMessage(R.string.not_filled_fields);
+            builder.setPositiveButton(R.string.ok, null);
             builder.show();
         } else {
             item.name = name.getText().toString();
@@ -73,8 +73,8 @@ public class OperationsAeActivity extends AppCompatActivity {
                 }
             } catch(Exception e) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Error");
-                builder.setMessage("Operation type ID and Doctor ID must be numbers and existing IDs");
+                builder.setTitle(R.string.error);
+                builder.setMessage(R.string.not_number_ot_id_and_d_id);
                 builder.setPositiveButton("OK", null);
                 builder.show();
                 return;
@@ -90,15 +90,15 @@ public class OperationsAeActivity extends AppCompatActivity {
 
     public void onDeleteClick(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete operation")
-                .setMessage("Are you sure you want to delete this operation?")
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setTitle(R.string.delete_operation)
+                .setMessage(R.string.delete_operation_msg)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
                     MainActivity.db.operationsDao().delete(item);
                     Intent intent = new Intent(this, TablesActivity.class);
                     intent.putExtra("table", "operations");
                     startActivity(intent);
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(R.string.no, null)
                 .show();
     }
 }
