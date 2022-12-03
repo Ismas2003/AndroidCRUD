@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public static AppDatabase db;
     TextView captcha;
     static boolean isAdmin = false;
-    SQLiteDatabase database;
 
     @SuppressLint("WrongThread")
     @Override

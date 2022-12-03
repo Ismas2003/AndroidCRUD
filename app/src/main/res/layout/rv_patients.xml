@@ -32,7 +32,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="First name"
+                android:text="@string/first_name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="First name"
+                android:text="@string/first_name"
                 android:textSize="24sp" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Last name"
+                android:text="@string/last_name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Last name"
+                android:text="@string/last_name"
                 android:textSize="24sp" />
 
             <TextView
@@ -74,7 +74,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Patronymic"
+                android:text="@string/patronymic"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -85,7 +85,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Patronymic"
+                android:text="@string/patronymic"
                 android:textSize="24sp" />
 
             <TextView
@@ -95,7 +95,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Address"
+                android:text="@string/address"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -106,7 +106,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Address"
+                android:text="@string/address"
                 android:textSize="24sp" />
 
             <TextView
@@ -116,7 +116,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Ward ID"
+                android:text="@string/ward_id"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -127,7 +127,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:maxLines="1"
-                android:text="Ward ID"
+                android:text="@string/ward_id"
                 android:textSize="24sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

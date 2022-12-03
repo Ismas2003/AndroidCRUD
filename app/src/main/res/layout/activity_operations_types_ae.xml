@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:text=" OPERATIONS TYPES"
+            android:text="@string/operation_types"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -35,8 +35,9 @@
             android:layout_marginTop="80dp"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textPersonName"
+            android:maxLength="40"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -46,8 +47,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Description"
+            android:hint="@string/description"
             android:inputType="textPersonName"
+            android:maxLength="150"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 

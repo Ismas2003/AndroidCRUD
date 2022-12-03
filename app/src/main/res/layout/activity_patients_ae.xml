@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:text="PATIENTS"
+            android:text="@string/patients"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -35,8 +35,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="First name"
+            android:hint="@string/first_name"
             android:inputType="textPersonName"
+            android:maxLength="17"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -46,10 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Last name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
-            android:textColorHint="#263238"
-            android:minHeight="48dp" />
+            android:maxLength="17"
+            android:minHeight="48dp"
+            android:textColorHint="#263238" />
 
         <EditText
             android:id="@+id/input_patronymic"
@@ -57,10 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Patronymic"
+            android:hint="@string/patronymic"
             android:inputType="textPersonName"
-            android:textColorHint="#263238"
-            android:minHeight="48dp" />
+            android:maxLength="17"
+            android:minHeight="48dp"
+            android:textColorHint="#263238" />
 
         <EditText
             android:id="@+id/input_address"
@@ -68,10 +71,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Address"
+            android:hint="@string/address"
             android:inputType="textPersonName"
-            android:textColorHint="#263238"
-            android:minHeight="48dp" />
+            android:maxLength="20"
+            android:minHeight="48dp"
+            android:textColorHint="#263238" />
 
         <EditText
             android:id="@+id/input_ward_id"
@@ -79,10 +83,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Ward ID"
+            android:hint="@string/ward_id"
             android:inputType="textPersonName"
-            android:textColorHint="#263238"
-            android:minHeight="48dp" />
+            android:maxLength="15"
+            android:minHeight="48dp"
+            android:textColorHint="#263238" />
 
         <LinearLayout
             android:layout_width="match_parent"

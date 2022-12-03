@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:text="DOCTORS"
+            android:text="@string/doctors"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -34,9 +34,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="First name"
+            android:hint="@string/first_name"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:maxLength="17"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -46,8 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Last name"
+            android:hint="@string/last_name"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:maxLength="17"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -56,9 +61,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="Patronymic"
+            android:hint="@string/patronymic"
             android:inputType="textPersonName"
+            android:maxLength="17"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -67,9 +74,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="Experience"
+            android:hint="@string/experience"
             android:inputType="textPersonName"
+            android:maxLength="2"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -79,8 +88,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Login"
+            android:hint="@string/login"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:maxLength="15"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
 
@@ -90,7 +101,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColorHint="#263238" />
@@ -106,27 +118,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:onClick="onBackToTablesClick"
                 app:srcCompat="@drawable/ic_back"
-                android:background="@android:color/transparent"/>
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:onClick="onSaveClick"
                 app:srcCompat="@drawable/ic_save"
-                android:background="@android:color/transparent"/>
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:onClick="onDeleteClick"
                 app:srcCompat="@drawable/ic_delete"
-                android:background="@android:color/transparent"/>
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

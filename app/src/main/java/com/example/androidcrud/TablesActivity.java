@@ -60,6 +60,7 @@ public class TablesActivity extends AppCompatActivity {
 
         searchView = findViewById(R.id.searchView);
         noneTextView = findViewById(R.id.noneTextView);
+        btnAdd = findViewById(R.id.btn_add);
 
         if (MainActivity.isAdmin) {
             setTitle("Admin");
@@ -114,7 +115,8 @@ public class TablesActivity extends AppCompatActivity {
                     setTitle("Wards");
                     break;
             }
-
+            searchView.setVisibility(View.VISIBLE);
+            btnAdd.setVisibility(View.VISIBLE);
             noneTextView.setVisibility(View.INVISIBLE);
         }
         catch (Exception e) {
@@ -213,7 +215,6 @@ public class TablesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        btnAdd = findViewById(R.id.btn_add);
         noneTextView.setVisibility(TextView.INVISIBLE);
         btnAdd.setVisibility(View.VISIBLE);
         searchView.setVisibility(View.VISIBLE);

@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:onClick="resetDatabase"
-            android:text="Authentication"
-            android:textSize="38dp"
+            android:text="@string/authentication"
+            android:textSize="38sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
             android:layout_marginTop="70dp"
             android:autofillHints=""
             android:ems="10"
-            android:hint="Login"
+            android:hint="@string/login"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColorHint="#4E342E"
@@ -51,7 +51,7 @@
             android:layout_marginTop="10dp"
             android:autofillHints=""
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textColorHint="#4E342E"
@@ -68,7 +68,8 @@
                 android:id="@+id/captcha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24dp"
+                android:fontFamily="@font/architects_daughter"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -76,7 +77,7 @@
                 android:id="@+id/btnCaptcha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/ic_generate"
                 android:onClick="onGenerateClick"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -90,23 +91,27 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
-            android:hint="Captcha"
+            android:hint="@string/captcha"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColorHint="#4E342E"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:autofillHints="" />
 
         <ImageButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
+            android:layout_marginStart="120dp"
             android:layout_marginTop="200dp"
             android:background="@drawable/ic_enter"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:onClick="onLoginClick"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

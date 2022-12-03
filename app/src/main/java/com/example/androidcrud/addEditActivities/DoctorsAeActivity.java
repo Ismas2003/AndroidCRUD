@@ -80,7 +80,9 @@ public class DoctorsAeActivity extends AppCompatActivity {
                 return;
             }
             item.login = login.getText().toString();
-            item.password = MainActivity.sha512(password.getText().toString()).toString();
+            if (!item.password.equals(password.getText().toString())) {
+                item.password = MainActivity.sha512(password.getText().toString()).toString();
+            }
 
             MainActivity.db.doctorsDao().insertAll(item);
 
