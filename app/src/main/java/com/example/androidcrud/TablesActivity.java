@@ -69,6 +69,8 @@ public class TablesActivity extends AppCompatActivity {
         }
 
         recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
 
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
@@ -262,79 +264,61 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     public void fillDoctorsAdminRecycler(List<Doctors> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         doctorsAdminAdapter = new DoctorsAdminAdapter(this, list);
         recyclerView.setAdapter(doctorsAdminAdapter);
     }
 
     public void fillDoctorsUserRecycler(List<Doctors> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         doctorsUserAdapter = new DoctorsUserAdapter(this, list);
         recyclerView.setAdapter(doctorsUserAdapter);
     }
 
     public void fillOperationsRecycler(List<Operations> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         operationsAdapter = new OperationsAdapter(this, list);
         recyclerView.setAdapter(operationsAdapter);
     }
 
     public void fillOperationsTypesRecycler(List<OperationsTypes> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         operationsTypesAdapter = new OperationsTypesAdapter(this, list);
         recyclerView.setAdapter(operationsTypesAdapter);
     }
 
     public void fillPatientsRecycler(List<Patients> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         patientsAdapter = new PatientsAdapter(this, list);
         recyclerView.setAdapter(patientsAdapter);
     }
 
     public void fillWardsRecycler(List<Wards> list) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         wardsAdapter = new WardsAdapter(this, list);
         recyclerView.setAdapter(wardsAdapter);
     }
 
     public void onBackToMainClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Exit account");
-        builder.setMessage("Are you sure you want to exit from account?");
-        builder.setPositiveButton("Yes", (dialog, which) -> {
+        builder.setTitle(R.string.exit_account);
+        builder.setMessage(R.string.exit_account_msg);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         });
-        builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel());
         builder.show();
     }
 
     public void onAddClick(View view) {
-        if (getTitle().equals("Doctors")) {
+        if (getTitle().equals(R.string.doctors)) {
             Intent intent = new Intent(this, DoctorsAeActivity.class);
             startActivity(intent);
-        } else if (getTitle().equals("Operations")) {
+        } else if (getTitle().equals(R.string.operations)) {
             Intent intent = new Intent(this, OperationsAeActivity.class);
             startActivity(intent);
-        } else if (getTitle().equals("Operations Types")) {
+        } else if (getTitle().equals(R.string.operation_types)) {
             Intent intent = new Intent(this, OperationsTypesAeActivity.class);
             startActivity(intent);
-        } else if (getTitle().equals("Patients")) {
+        } else if (getTitle().equals(R.string.patients)) {
             Intent intent = new Intent(this, PatientsAeActivity.class);
             startActivity(intent);
-        } else if (getTitle().equals("Wards")) {
+        } else if (getTitle().equals(R.string.wards)) {
             Intent intent = new Intent(this, WardsAeActivity.class);
             startActivity(intent);
         }

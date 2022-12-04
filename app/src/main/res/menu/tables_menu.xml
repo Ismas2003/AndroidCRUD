@@ -3,20 +3,20 @@
 
     <item
         android:id="@+id/doctorsMenuItem"
-        android:title="Doctors" />
+        android:title="@string/doctors" />
     <item
         android:id="@+id/operationsMenuItem"
-        android:title="Operations" />
+        android:title="@string/operations" />
     <item
         android:id="@+id/operationsTypesMenuItem"
-        android:title="Operations types" />
+        android:title="@string/operation_types" />
     <item
         android:id="@+id/patientsMenuItem"
-        android:title="Patients" />
+        android:title="@string/patients" />
     <item
         android:id="@+id/wardsMenuItem"
-        android:title="Wards" />
+        android:title="@string/wards" />
     <item
         android:id="@+id/noneMenuItem"
-        android:title="None" />
+        android:title="@string/none" />
 </menu>

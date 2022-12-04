@@ -94,6 +94,11 @@ public class DoctorsAeActivity extends AppCompatActivity {
     }
 
     public void onDeleteClick(View view) {
+        if (item.login.equals("admin")) {
+            Toast.makeText(this, R.string.delete_admin_msg, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         new AlertDialog.Builder(this)
                 .setTitle(R.string.delete_doctor)
                 .setMessage(R.string.delete_doctor_msg)

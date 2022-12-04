@@ -82,19 +82,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, TablesActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Wrong login or password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.wrong_l_or_p, Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "Wrong captcha", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.wrong_captcha, Toast.LENGTH_SHORT).show();
             captcha.setText(generateCaptcha());
         }
     }
 
     public void resetDatabase(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Reset database");
-        builder.setMessage("Are you sure you want to reset database?");
-        builder.setPositiveButton("Yes", (dialog, which) -> {
+        builder.setTitle(R.string.reset_db);
+        builder.setMessage(R.string.reset_db_msg);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
             db.clearAllTables();
             FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
             mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
@@ -104,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
             mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Operations';");
             TablesData tablesData = new TablesData();
             tablesData.fillTables();
-            Toast.makeText(this, "Database reset", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.reset_db, Toast.LENGTH_SHORT).show();
         });
-        builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel());
         builder.show();
     }
 }
