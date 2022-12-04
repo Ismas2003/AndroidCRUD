@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.androidcrud.FeedReaderDbHelper;
 import com.example.androidcrud.MainActivity;
 import com.example.androidcrud.R;
 import com.example.androidcrud.TablesActivity;
 import com.example.androidcrud.tables.Doctors;
 
 import java.util.List;
-
 
 public class DoctorsAeActivity extends AppCompatActivity {
     TextView firstName, lastName, patronymic, experience, login, password;
@@ -97,7 +98,11 @@ public class DoctorsAeActivity extends AppCompatActivity {
                 .setTitle(R.string.delete_doctor)
                 .setMessage(R.string.delete_doctor_msg)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
                     MainActivity.db.doctorsDao().delete(item);
+                    mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Doctors';");
+                    mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Wards';");
+                    mDbHelper.getWritableDatabase().execSQL("DELETE FROM sqlite_sequence WHERE name='Patients';");
                     Intent intent = new Intent(this, TablesActivity.class);
                     intent.putExtra("table", "doctors");
                     startActivity(intent);

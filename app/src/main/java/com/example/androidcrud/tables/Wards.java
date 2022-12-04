@@ -6,7 +6,7 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Wards", foreignKeys = {
-        @ForeignKey(entity = Doctors.class, parentColumns = "doctorId", childColumns = "doctorId")
+        @ForeignKey(entity = Doctors.class, parentColumns = "doctorId", childColumns = "doctorId", onDelete = ForeignKey.CASCADE)
 })
 public class Wards {
 

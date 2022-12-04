@@ -8,7 +8,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
     static final int DATABASE_VERSION = 1;
     static final String DATABASE_NAME = "database";
 
-    FeedReaderDbHelper(Context context) {
+    public FeedReaderDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
